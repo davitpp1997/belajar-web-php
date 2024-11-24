@@ -25,6 +25,10 @@ $result = $koneksi->query($sql);
 
 <body>
     <h1>Daftar Produk</h1>
+
+    <!-- Tautan untuk menambah produk -->
+    <a href="tambah.php">Tambah Produk Baru</a><br><br>
+
     <table border="1" cellspacing="0" cellpadding="10">
         <thead>
             <tr>
