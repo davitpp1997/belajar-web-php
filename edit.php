@@ -1,11 +1,6 @@
 <?php
 // Koneksi ke database
-$koneksi = new mysqli("localhost", "root", "", "belajar");
-
-// Periksa koneksi
-if ($koneksi->connect_error) {
-    die("Koneksi gagal: " . $koneksi->connect_error);
-}
+include 'koneksi.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

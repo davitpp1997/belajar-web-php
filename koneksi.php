@@ -4,7 +4,7 @@
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$dbname = 'indoweb';
+$dbname = 'belajar';
 
 // Membuat koneksi ke MySQL
 $koneksi = new mysqli($host, $username, $password, $dbname);

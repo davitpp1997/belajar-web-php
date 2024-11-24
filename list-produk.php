@@ -1,11 +1,6 @@
 <?php
 // Koneksi ke database (misalnya menggunakan MySQLi)
-$koneksi = new mysqli("localhost", "root", "", "belajar");
-
-// Periksa koneksi
-if ($koneksi->connect_error) {
-    die("Koneksi gagal: " . $koneksi->connect_error);
-}
+include 'koneksi.php';
 
 // Ambil data produk dari database
 $sql = "SELECT * FROM produk";

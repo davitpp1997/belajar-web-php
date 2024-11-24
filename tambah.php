@@ -1,11 +1,6 @@
 <?php
 // Koneksi ke database
-$koneksi = new mysqli("localhost", "root", "", "belajar");
-
-// Periksa koneksi
-if ($koneksi->connect_error) {
-    die("Koneksi gagal: " . $koneksi->connect_error);
-}
+include 'koneksi.php';
 
 // Proses penyimpanan data
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
