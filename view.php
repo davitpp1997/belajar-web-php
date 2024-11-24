@@ -1,6 +1,6 @@
 <?php
 // Koneksi ke database
-$koneksi = new mysqli("localhost", "root", "", "indoweb");
+$koneksi = new mysqli("localhost", "root", "", "belajar");
 
 // Periksa koneksi
 if ($koneksi->connect_error) {
