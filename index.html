@@ -117,7 +117,11 @@
     <script>
         // Fungsi untuk mengambil data dari API dan menampilkan di tabel
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('http://localhost/belajar-api/api_produk.php') // Ganti dengan API yang sesuai
+            fetch('http://192.168.100.209/belajar-api/api_produk.php', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }}) // Ganti dengan API yang sesuai
                 .then(response => response.json())
                 .then(data => {
                     const tbody = document.getElementById('produk-list');
@@ -214,7 +218,7 @@
 
             // Kirim data untuk update produk ke API
             // Misalnya menggunakan fetch PUT
-            fetch(`http://localhost/belajar-api/api_produk.php`, {
+            fetch(`http://192.168.100.209/belajar-api/api_produk.php`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -257,7 +261,7 @@
         };
 
         confirmDelete.onclick = function() {
-            fetch(`http://localhost/belajar-api/api_produk.php`, {
+            fetch(`http://192.168.100.209/belajar-api/api_produk.php`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -297,7 +301,7 @@
             const price = document.getElementById('addPrice').value;
 
             // Kirim data untuk tambah produk ke API
-            fetch('http://localhost/belajar-api/api_produk.php', {
+            fetch('http://192.168.100.209/belajar-api/api_produk.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

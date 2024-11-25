@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Data from API</title>
+</head>
+<body>
+    <h1>List Produk</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Kode</th>
+                <th>Nama Produk</th>
+                <th>Harga</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="produk-list">
+            <!-- Data produk akan dimasukkan ke sini -->
+        </tbody>
+    </table>
+
+    <script>
+        // Menggunakan DOMContentLoaded untuk memastikan DOM siap
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fungsi untuk mengambil data dari API dan menampilkannya di dalam <tbody>
+            fetch('http://localhost/belajar-api/api_produk.php') // Ganti dengan API yang sesuai
+                .then(response => response.json()) // Mengonversi response menjadi JSON
+                .then(data => {
+                    // Menemukan elemen tbody tempat data akan dimasukkan
+                    const tbody = document.getElementById('produk-list');
+                    // Mengosongkan tbody sebelum menambahkan data baru
+                    tbody.innerHTML = '';
+
+                    // Menambahkan data produk ke dalam tabel
+                    var i = 1;
+                    data.forEach(product => {
+                        // Cara 1 menampilakan data di tabel
+                        // $baris = `<td>${i++}</td>
+                        //           <td>${product.kode}</td>
+                        //           <td>${product.nama}</td> 
+                        //           <td>${product.harga}</td> `
+                        // tbody.innerHTML += $baris;
+                        // Cara 1 menampilakan data di tabel
+
+                        // Cara 2 menampilakan data di tabel
+                        // Membuat elemen baris baru
+                        const tr = document.createElement('tr');
+
+                        // Membuat dan menambahkan sel untuk Nomor
+                        const tdNo = document.createElement('td');
+                        tdNo.textContent = i++;
+                        tr.appendChild(tdNo);
+
+                        // Membuat dan menambahkan sel untuk Kode
+                        const tdKode = document.createElement('td');
+                        tdKode.textContent = product.kode;
+                        tr.appendChild(tdKode);
+
+                        // Membuat dan menambahkan sel untuk Nama produk
+                        const tdName = document.createElement('td');
+                        tdName.textContent = product.nama;
+                        tr.appendChild(tdName);
+
+                        // Membuat dan menambahkan sel untuk Harga produk
+                        const tdPrice = document.createElement('td');
+                        tdPrice.textContent = product.harga;
+                        tr.appendChild(tdPrice);
+
+                        // Menambahkan Button Aksi
+                        // const tdId = document.createElement('td');
+                        // tdId.textContent = product.id;
+                        // tr.appendChild(tdId);
+
+                        // Menambahkan baris (tr) ke tbody
+                        tbody.appendChild(tr);
+
+                        // Cara 2 menampilakan data di tabel
+                        
+                    });
+                })
+                .catch(error => {
+                    console.error('Terjadi kesalahan:', error);
+                });
+        });
+    </script>
+</body>
+</html>
